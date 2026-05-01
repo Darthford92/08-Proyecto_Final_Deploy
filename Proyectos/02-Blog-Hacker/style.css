@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+
+*/
+
+body{
+    background-color: #0D1117; /* colro de fondo */
+    color: #01FF00; /* color de letras */
+}
+
+header{
+    display: flex; /* activo flex */
+    text-align: center; /* alineo el contenido en linea (h1-p) al centro */
+    flex-direction: column; /* acomodo los elementos en columna */
+    padding: 20px; /* agrego padding dentro del header para separar */
+}
+
+.navbar{
+    margin: 20px; /* le agrego margin a la navbar para separarla del titulo */
+}
+
+a{
+    color: #01FF00; /* cambio el color por defecto de los links del navbar*/
+    text-decoration: none; /* Le quito a los links la decoración (la barra de subrayado) */
+}
+
+ul{
+    display: flex; /* activo flex en la lista */
+    justify-content: center; /* alineo los elementos al centro */
+    gap: 30px; /* creo espacio entre elementos */
+    list-style: none; /* quito los estilos de la lista para que se vea solo el texto */
+}
+
+li{
+    border: 1px solid #01FF00 ; /* le agrego borde a cada lista */
+    padding: 5px; /* agrego espacio entre el borde de la lista y el texto */
+}
+
+main{
+    display: flex; /* activo flex en el main */
+    flex-wrap: wrap; /* Permite que los elementos bajen de linea si no hay suficiente 
+    espacio horizontal, sino pueden superponerse */
+    gap: 20px; /* Separo un poco más article y aside */
+    max-width: 1200px; /* evita que el contenido se estire de más en 
+    pantallas anchas */
+    margin: 0 auto;    /* centra el main dentro del body */
+}
+
+article > * {
+  margin-bottom: 10px; /* Agrego margen entre todos los contenidos del articulo 
+  el selector > indica que afecta solo a los HIJOS DIRECTOS*/
+}
+
+figure > * {
+  margin-bottom: 10px; /* Agrego margen entre todos los contenidos de la figure
+  el selector > indica que afecta solo a los HIJOS DIRECTOS*/
+}
+
+figure {
+    text-align: center; /* centra elementos inline o inline-block
+    como img y figcaption */
+}
+
+figure img {
+    max-width: 95%;   /* evita que la imagen se salga del contenedor */
+    height: auto; /* Mantiene la proporción original de la imagen al cambiar su
+    tamaño */
+}
+
+p{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+#title{
+    color: #01FF00;
+    font-weight: bold; /* sirve para destacar el titulo, hace más gruesa la negrita de la letra */
+    -webkit-text-stroke: 1px #01FF00; /* crea un contorno alrededor de la letra
+    1px es el grosor del contorno y el otro es el color 
+    -webkit- suele verso solo en navegadores basados en webkit*/
+    text-shadow: 0 0 2px #01FF00, 0 0 5px #01FF00; /* Permite agregar sombras o resplandor
+    al texto: text-shadow: offset-x offset-y blur-radius color;
+    offset-x -> desplazamiento horizontal de la sombra
+    offset-y -> desplazamiento vertical de la sombra
+    blur-radius -> lo difuso de la sombra
+    color -> el color de la sombra
+    0 0 2px #01FF00 sin desplazamientos de lado, sombra alrededor de la letra, resplandor pequeño
+    0 0 5px #01FF00 lo mismo que arriba pero más resplandor
+    la superposición de dos sombras genera un efecto neón
+     */
+}
+
+article{
+    padding: 10px;
+    margin: 20px;
+    flex: 2; /* Da proporcion de espacio al usar flex, sus contenidos deben respetarlas 
+    si se quitan los contenidos de articulo y aside se ponen uno debajo del otro*/
+    background-color: #161B22; 
+    border: 1px solid #252A31; /* Agrega un borde sólido al articulo */
+    text-align: justify; /* Alinea el texto como justificado */
+}
+
+aside{
+    padding: 10px;
+    margin: 20px;
+    flex: 1;/* Da proporcion de espacio al usar flex, sus contenidos deben respetarlas 
+    si se quitan los contenidos de articulo y aside se ponen uno debajo del otro*/
+    background-color: #161B22;
+    text-align: justify; 
+    border: 1px solid #01FF00;
+}
+
+figure{
+    text-align:center;
+    border: 1px solid #01FF00;
+}
+
+hr {
+    width: 100%; /* Hace que el hr ocule la totalidad del ancho de su contenedor */
+    margin: 10px; /* agrega margenes alrededor */
+    border: none; /* quita el borde del hr */
+    height: 1px; /* cambia la altura del hr */
+    border-top: 2px dotted #01FF00; /* hace que la linea del hr sea punteada y verde */
+}
+
+#hr_article{
+    border-top: 2px solid #01FF00; /* cambia de modo punteado a linea entera solo en
+    este hr */
+}
+
+footer{
+    margin: 20px;
+    text-align: center;
+}
+
+aside {
+    align-self: flex-start;
+}
+
+.theme-btn, .like-btn {
+    background-color: #01FF00;
+    color: #0D1117;
+    border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.theme-btn:hover, .like-btn:hover {
+    transform: scale(1.02);
+    background-color: #00cc00;
+}
+
+body {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.03) 0px,
+        rgba(0, 255, 0, 0.03) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+}
+
+.theme-btn, .like-btn {
+    background-color: #01FF00;
+    color: #0D1117;
+    border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.theme-btn:hover, .like-btn:hover {
+    transform: scale(1.02);
+    background-color: #00cc00;
+}
+
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+}

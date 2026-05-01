@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio de Empleados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Directorio Interno - Appwise</h1>
+            <p>Listado actualizado del personal del equipo de desarrollo</p>
+        </header>
+
+        <form id="formEmpleado">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="text" id="puesto" placeholder="Puesto" required>
+            <input type="email" id="email" placeholder="Email corporativo" required>
+            <button type="submit">Agregar Empleado</button>
+        </form>
+
+        <table id="tablaEmpleados">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre completo</th>
+                    <th>Puesto</th>
+                    <th>Email Corporativo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                <!-- Los empleados se cargarán dinámicamente con JS -->
+            </tbody>
+            <tfoot>
+                <tr id="filaTotal">
+                    <td colspan="5">
+                        <p>Total de personal activo: <span id="totalEmpleados">0</span> empleados</p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <script src="empleados.js"></script>
+</body>
+</html>

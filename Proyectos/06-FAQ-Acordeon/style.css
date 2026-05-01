@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+
+*/
+
+body{
+    background-color: rgb(218, 221, 221);
+}
+
+header{
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+main{
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    min-height: 300px;
+    margin: 40px auto; /* El auto es para centrar */
+    border-radius: 10px;
+}
+
+section{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+summary{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  background-color: rgb(231, 241, 248);
+  color: black;
+  padding: 20px;
+  font-weight:bold;
+}
+
+summary::after{ /* El after y el before sirven para agregar contenido visual sin tocar 
+  el html */
+  content: "+"; /* Se agrega un + al final de la linea */
+  color: rgb(31, 137, 212); /* color distinto */
+}
+
+details{
+  background-color: white;
+  border: 2px solid rgb(31, 137, 212);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+details[open] summary::after{
+  /* Details open especifica el estado de un parametro, en éste caso cuando details esté
+  abierto summary::after agregará lo que aparece entre corchetes al final del summary */
+  content: "-";
+}
+
+details[open] summary{
+  /* Este caso es casi el mismo que el de arriba pero agrega una configuración
+  mientras los detalles estén abiertos de cambiar el color */
+  color: rgb(31, 137, 212);
+}
+
+p{
+  padding: 10px;
+}
+
+#subtitle {
+  color: grey;
+}

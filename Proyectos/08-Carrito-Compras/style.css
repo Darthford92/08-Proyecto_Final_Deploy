@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+Nº12 PARA PONER HEIGH 100% EL CONTENEDOR TIENE QUE TENER ALTURA DEFINIDA
+
+
+*/
+
+body{
+        background-color: rgb(221, 221, 221);
+}
+
+header{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+.products_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#productosSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    width: 280px;
+    min-height: 380px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+article img{
+    width: 100%;
+    max-width: 160px;
+    height: 140px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+article h3{
+    margin: auto;
+    font-size: 1.3rem;
+}
+
+article p{
+    margin-top: auto;
+    color: green;
+    font-size: 1.2rem;
+}
+
+.add_product{
+    padding: 8px 24px;
+    background-color: rgb(17, 93, 255);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+#cart{
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+    position: relative;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#cartItems {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+#cartItems li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cantidad-control button {
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cantidad-control span {
+    min-width: 24px;
+    text-align: center;
+}
+
+.remove_element {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.empty-cart {
+    justify-content: center;
+    color: gray;
+}
+
+#buy{
+    background-color: rgb(61, 177, 61);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.remove_element {
+    background-color: #ff4444 !important;
+}

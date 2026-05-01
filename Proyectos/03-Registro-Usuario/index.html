@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Appwise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Únete a la comunidad Appwise</h1>
+    <form action="#" name="inscripción" autocomplete="off">
+        <label for="nombre"><strong>Nombre Completo:</strong></label>
+        <!--El label es el texto que acompaña el input e indica
+        que es lo que se tiene que ingresar en el mismo,
+        se conecta al input mediante la propiedad for
+        que busca la propiedad id para identificar el input-->
+        <input type="text" name="nombre" id="nombre" placeholder="Ej: Juan Pérez" required>
+        <!--El input es la caja dónde podemos introducir texto,
+        seleccionar opciones, etc. Su tipo define que es lo que hace
+        text -> te deja escribir
+        email -> el navegador verifica que lo escrito tenga forma
+        de correo electrónico
+        password -> para contraseñas, oculta lo que escribis
+        date -> muestra un calendario y te permite elegir fechas
+        numer -> solo deja meter números (se le pueden poner 
+        propiedades para limitarlos) tiene flechitas para aumentar o
+        disminuir el valor del número (spinner)
+        radio -> te da varias elecciones donde solo podes elegir una
+        checkbox -> Permite marcar más de una opción de la lista que da (cuadrado)
+        file -> permite subir archivos (fotos o cv por ej)
+        submit -> sirve para enviar el formulario, aunque hoy 
+        en día se usa más el button
+        search -> sirve para hacer un buscador
+        -->
+        <label for="email"><Strong>Correo Electrónico: </Strong></label>
+        <input type="email" name="email" id="email" placeholder="tu@email.com" required>
+        <!--Me tomé el atrevimiento de agregar un usuario porque pensé 
+        que hacia falta--> 
+        <label for="usuario"><Strong>Usuario: </Strong></label>
+        <input type="text" name="usuario" id="usuario" placeholder="Ej: Terminator" required>
+        <!--name sirve para sabér de que input viene la información
+        id sirve para hacer conección entre el label y el input y
+        placeholder es para que haya un ejemplo en el input a rellenar
+        que sirva como guía al usuario. Por último required hace que no se pueda
+        enviar el formulario sin antes sin rellenar los campos-->
+
+        <label for="contraseña"><Strong> Contraseña: </Strong></label>
+        <div style="display: flex; gap: 5px;">
+            <input type="password" name="contraseña" id="contraseña" placeholder="**********" required style="flex:1">
+            <button type="button" id="togglePassword" style="padding: 10px;">👁️</button>
+        </div>
+
+        <label for="confirmar"><Strong>Confirmar Contraseña: </Strong></label>
+        <input type="password" name="confirmar" id="confirmar" placeholder="Repite tu contraseña" required>
+
+        <label for="nacimiento"><Strong>Fecha de Nacimiento: </Strong></label>
+        <input type="date" name="nacimiento" id="nacimiento" required>
+
+        <label for="nivel"><Strong>Nivel en Programación: </Strong></label>
+        <!--Para hacer una lista dentro de un desplegable, de la cual solo se puede 
+        elegir una opción, se debe usar  select con sus option como hijos, 
+        usar radio mostrara todas las opciones a la vista y checkbox igual
+        asi que para este caso no nos sirven-->
+        <select name="nivel" id="nivel">
+            <option>Trainee</option>
+            <option>Junior</option>
+            <option>Semi-Senior</option>
+        </select>
+        
+        <p><Strong>¿Cual es su especialidad favorita?</Strong></p>
+
+        <label for="frontend">
+            <input type="radio" name="especialidad" id="frontend" required value="frontend">
+            Frontend (Diseño e Interfaz)
+        </label>
+        <!-- al meterle un label a los input tipo radio le damos al usuario
+         la posibilidad de que los selecciones al hacer click en el texto 
+         y no solo en los circulos de selección.
+         el atributo value sirve para luego organizar la información del formulario
+         que recibira con nombre el nombre del input que lo envía y con value
+         el valor que se envía-->
+
+        
+        <label for="backend">
+            <input type="radio" name="especialidad" id="backend" value="backend">
+            Backend (Lógica y Bases de Datos)
+        </label>
+
+        
+        <label for="terminos">
+            <input type="checkbox" name="terminos" id="terminos" required>
+            Acepto los términos y conidicones de la academia
+        </label>
+        
+
+        <button type="submit" name="CrearCuenta" value="crear" id="btnCrear" disabled>Crear Cuenta</button>
+        <!--Los botones tienen varios tipos, submit envía la información de los
+        formularios, button no hace nada por si solo, servira al meterle javascrip 
+        y usar el DOM, por último reset sirve para limpiar los datos del formulario.
+        Si no se pone el tipo el botón por defecto será submit.
+        La diferencia entre el botón submit y el input tipo submit es que el botón
+        puede tener configuraciónes del html enbebidas en si mismo, como una imágen,
+        un sonido al apretarlo, negrita, etc mientras que el input tipo submit solo
+        pasaran su texto.
+        value es una propiedad que envía un valor con el formulario
+        disabled desactiva el botón, con javascript luego se puede poner alguna
+        condición para habilitarlo nuevamente
+        autofocus centra la pagina en el botón al recargar
+        form permite conectar el botón con un formulario aunque el mismo esté fuera de 
+        la página-->
+    </form>
+
+    <div id="modal" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrarModal" class="cerrar">&times;</span>
+            <p id="mensajeModal">Usuario registrado con éxito.</p>
+        </div>
+    </div>
+
+    <script src="registro.js"></script>
+</body>
+</html>

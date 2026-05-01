@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+
+*/
+
+header{
+    background-color: #1D1D1F;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 40px;
+}
+
+#subtitle{
+    margin: 20px; /* Margenes para separar subtitulo del titulo y del botón */
+    color: #8F7043;
+}
+
+button{
+    background-color: #0071E3;
+    padding: 10px;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+body{
+    background-color: #F5F5F7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-container {
+    margin: 20px;
+    overflow: hidden;  /* Oculta cualquier parte del video que sobresalga del contenedor,
+    lo que sirve para que el border-radius recorte visualmente el video */
+    border-radius: 30px;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Escala el video manteniendo su proporcion para llenar el contenedor
+  , luego oculta lo que el div tapa*/
+}
+
+/*NOTA: el video por si solo no dejaba cortarse, así que lo tuve que meter en un div que lo
+"tapara", escalar el video a el tamaño del div y recortar el contenedor de ese div,
+así el div aparece recortado pero el video no se recorta*/
+
+table{
+    border-radius: 10px;
+    background-color: white;
+    border-collapse: collapse; /* Hace que los bordes de cada celda se fusionen en uno solo para
+    que no se vea mal */
+    overflow: hidden; /* Sirve para cortar todo lo que se sale del borde de la tabla */
+}
+
+thead{
+    background-color: rgb(231, 231, 231);
+}
+
+th,td{
+    padding: 10px;
+    border: 1px solid black; /* Agrega bordes internos a las celdas */
+}
+
+tr:first-child th  /*tr:first-child -> apunta al primer tr de la tabla*/
+            /*th -> y a todas las celdas de esa fila*/{
+    border-top: none;  /*Le saco el borde de arriba a las celdas de la primera fila*/
+}
+
+tr:last-child td /*A la ultima fila y sus celdas*/{
+    border-bottom: none; /*le saca el borde de abajo*/
+}
+
+tr td:first-child,/* agarra la primer celda (td = table data) de cada fila */
+tr th:first-child /* agarra la primer celda de encabezado (th = table header) de cada fila */{
+    border-left: none; /* Y les quita el borde izquierdo */
+}
+
+tr td:last-child,/* agarra la ultima celda (td = table data) de cada fila */
+tr th:last-child /* agarra la ultima celda de encabezado (th = table header) de cada fila */{
+    border-right: none; /* Y les quita el borde derecho */
+}
+
+#modelos{
+    text-align: center; /* centra el titulo de la tabla*/
+    margin: 20px;
+}
+
+#valor{
+    color: #0071E3;
+}
+
+.caracter{
+    text-align: center; /* centra los textos en las columnas de modelo básico y modelo ninja */
+}
+
+#reseña{
+    text-align: center; /*Centra el titulo y video de la reseña*/
+    margin: 20px;
+}
+
+iframe{
+    margin: 20px; /* añade margen al video incrustado */
+}
+
+footer{
+    background-color: #E8E8ED;
+    width: 100%;  /* Hace que el footer ocupe todo el ancho de su contenedor */
+    display: flex;
+    flex-direction: column; /* Pone en columna los elementos del footer */
+    align-items: center; /* alinea al centro los elementos del footer */
+    margin: 10px;
+    padding: 20px;
+    gap: 20px;
+}
+
+footer .links{
+    display: flex; /* Activa flez en los links inferiores para ordenarlos uno al lado del otro */
+    gap: 20px;
+}
+
+a{
+    color: #8F7043;
+}
+
+.carrito-icono {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #0071E3;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.carrito-icono span {
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.cerrarModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#listaCarrito {
+    margin: 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+}
+
+.item-carrito button {
+    background-color: #ff4444;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.btnAgregar {
+    background-color: #28a745;
+    margin-left: 10px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
