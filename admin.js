@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const contenidoDinamico = document.getElementById("contenidoDinamico");
 
     const proyectosData = [
-        { nombre: "Receta de la abuela", descripcion: "Página de receta semántica", icono: "fa-utensils", url: "Proyectos/01-receta-Abuela/index.html" },
+        { nombre: "Receta de la abuela", descripcion: "Página de receta semántica", icono: "fa-utensils", url: "Proyectos/01-Receta-Abuela/index.html" },
         { nombre: "Blog Hacker", descripcion: "Estructura de blog con article/aside", icono: "fa-blog", url: "Proyectos/02-Blog-Hacker/index.html" },
         { nombre: "Registro de usuarios", descripcion: "Formulario con validación y localStorage", icono: "fa-user-plus", url: "Proyectos/03-Registro-Usuario/index.html" },
         { nombre: "Landing page - Teclado", descripcion: "Producto con video, tabla y carrito", icono: "fa-store", url: "Proyectos/04-Landing-Producto/index.html" },
