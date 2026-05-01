@@ -2,25 +2,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const contenidoDinamico = document.getElementById("contenidoDinamico");
 
     const proyectosData = [
-        { nombre: "Receta de la abuela", descripcion: "Página de receta semántica", icono: "fa-utensils", url: "01-receta/index.html" },
-        { nombre: "Blog Hacker", descripcion: "Estructura de blog con article/aside", icono: "fa-blog", url: "02-blog/index.html" },
-        { nombre: "Registro de usuarios", descripcion: "Formulario con validación y localStorage", icono: "fa-user-plus", url: "03-registro/index.html" },
-        { nombre: "Landing page - Teclado", descripcion: "Producto con video, tabla y carrito", icono: "fa-store", url: "04-landing/index.html" },
-        { nombre: "Gestor de tareas", descripcion: "Checklist interactivo con persistencia", icono: "fa-list-check", url: "05-tareas/index.html" },
-        { nombre: "FAQ Acordeón", descripcion: "Preguntas frecuentes con desplegables", icono: "fa-circle-question", url: "06-faq/index.html" },
-        { nombre: "Directorio de empleados", descripcion: "Tabla dinámica agregar/eliminar", icono: "fa-address-card", url: "07-directorio/index.html" },
-        { nombre: "Carrito de compras", descripcion: "Tienda con modal y botones +/-", icono: "fa-cart-shopping", url: "08-carrito/index.html" },
-        { nombre: "Buscador de sucursales", descripcion: "Mapa interactivo con iframe", icono: "fa-map-location-dot", url: "09-mapas/index.html" },
-        { nombre: "Admin Panel Dashboard", descripcion: "Panel con métricas y gestión", icono: "fa-chart-line", url: "10-admin/index.html" }
+        { nombre: "Receta de la abuela", descripcion: "Página de receta semántica", icono: "fa-utensils", url: "Proyectos/01-receta-Abuela/index.html" },
+        { nombre: "Blog Hacker", descripcion: "Estructura de blog con article/aside", icono: "fa-blog", url: "Proyectos/02-Blog-Hacker/index.html" },
+        { nombre: "Registro de usuarios", descripcion: "Formulario con validación y localStorage", icono: "fa-user-plus", url: "Proyectos/03-Registro-Usuario/index.html" },
+        { nombre: "Landing page - Teclado", descripcion: "Producto con video, tabla y carrito", icono: "fa-store", url: "Proyectos/04-Landing-Producto/index.html" },
+        { nombre: "Gestor de tareas", descripcion: "Checklist interactivo con persistencia", icono: "fa-list-check", url: "Proyectos/05-Gestor-Tareas/index.html" },
+        { nombre: "FAQ Acordeón", descripcion: "Preguntas frecuentes con desplegables", icono: "fa-circle-question", url: "Proyectos/06-FAQ-Acordeon/index.html" },
+        { nombre: "Directorio de empleados", descripcion: "Tabla dinámica agregar/eliminar", icono: "fa-address-card", url: "Proyectos/07-Directorio-Empleados/index.html" },
+        { nombre: "Carrito de compras", descripcion: "Tienda con modal y botones +/-", icono: "fa-cart-shopping", url: "Proyectos/08-Carrito-Compras/index.html" },
+        { nombre: "Buscador de sucursales", descripcion: "Mapa interactivo con iframe", icono: "fa-map-location-dot", url: "Proyectos/09-Buscar-Mapas/index.html" },
+        { nombre: "Admin Panel Dashboard", descripcion: "Panel con métricas y gestión", icono: "fa-chart-line", url: "Proyectos/10-Dashboard-Admin/index.html" }
     ];
 
     const juegosData = [
-    { nombre: "Clase Oráculo", descripcion: "Juego educativo", icono: "fa-gamepad", url: "juegos/01-Videojuego-Clase-Oraculo/index.html" },
-    { nombre: "Piedra Papel Tijeras", descripcion: "El clásico", icono: "fa-hand-back-fist", url: "juegos/02-Videojuego-Piedra-Papel-Tijeras/index.html" },
-    { nombre: "Memotest", descripcion: "Memoriza y encuentra", icono: "fa-brain", url: "juegos/03-Videojuego-Memotest/index.html" },
-    { nombre: "Whack‑A‑Mole", descripcion: "Golpea los topos", icono: "fa-bug", url: "juegos/04-Videojuego-WhackAMole/index.html" },
-    { nombre: "Clicker", descripcion: "Incremental", icono: "fa-mouse-pointer", url: "juegos/05-Videojuego-Clicker/index.html" },
-    { nombre: "Pong", descripcion: "Arcade clásico", icono: "fa-table-tennis-paddle-ball", url: "juegos/06-Videojuego-Pong/index.html" }
+    { nombre: "Clase Oráculo", descripcion: "Juego educativo", icono: "fa-gamepad", url: "Juegos/01-Videojuego-Clase-Oraculo/index.html" },
+    { nombre: "Piedra Papel Tijeras", descripcion: "El clásico", icono: "fa-hand-back-fist", url: "Juegos/02-Videojuego-Piedra-Papel-Tijeras/index.html" },
+    { nombre: "Memotest", descripcion: "Memoriza y encuentra", icono: "fa-brain", url: "Juegos/03-Videojuego-Memotest/index.html" },
+    { nombre: "Whack‑A‑Mole", descripcion: "Golpea los topos", icono: "fa-bug", url: "Juegos/04-Videojuego-WhackAMole/index.html" },
+    { nombre: "Clicker", descripcion: "Incremental", icono: "fa-mouse-pointer", url: "Juegos/05-Videojuego-Clicker/index.html" },
+    { nombre: "Pong", descripcion: "Arcade clásico", icono: "fa-table-tennis-paddle-ball", url: "Juegos/06-Videojuego-Pong/index.html" }
 ];
 
     class UICards {
