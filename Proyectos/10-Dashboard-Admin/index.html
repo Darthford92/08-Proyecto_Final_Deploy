@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Appwise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <aside>
+        <h2 id="aside_title"><i class="fa-solid fa-rocket"></i> Appwise Admin</h2>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" data-page="dashboard">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="usuarios">
+                        <i class="fa-solid fa-users"></i>
+                    Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="reportes">
+                        <i class="fa-regular fa-newspaper"></i>
+                        Reportes
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="configuracion">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                         Configuración
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <header>
+            <input id="search" type="search" placeholder="Buscar en el panel">
+            <div class="avatar" id="avatarBtn">
+                <p>Hola, <strong>Admin</strong></p> 
+                <img src="assets/avatar.png" alt="Avatar usuario actual" id="avatarImg">
+            </div>
+        </header>
+        <section id="articles">
+            <h2 id="title_articles">Resumen General</h2>
+            <button id="new_user"><i class="fa-solid fa-plus"></i> Nuevo Usuario</button>
+            <article id="cardUsuarios">
+                <h3 class="article_title">USUARIOS ACTIVOS</h3>
+                <p class="value" id="usuariosActivos">1,250</p>
+                <p class="change" id="porcentajeUsuarios">+5% esta semana</p>
+            </article>
+            <article id="cardVentas">
+                <h3 class="article_title">VENTAS DEL MES</h3>
+                <p class="value" id="ventasMes">14,500</p>
+                <p class="change">+12% esta semana</p>
+            </article>
+            <article id="cardTickets">
+                <h3 class="article_title">TICKETS PENDIENTES</h3>
+                <p class="value" id="ticketsPendientes">8</p>
+                <p id="atention">Requiere atención</p>
+            </article>
+        </section>
+        <h2 id="title_table">Actividad Reciente</h2>
+        <section id="table_section">
+            <table id="actividadTable">
+                <thead>
+                    <tr>
+                        <th>FECHA</th>
+                        <th>USUARIO</th>
+                        <th>ACCIÓN</th>
+                        <th>ESTADO</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaBody">
+                    <tr>
+                        <td>15 Oct, 10:30</td>
+                        <td class="user">carlos.dev</td>
+                        <td class="acction">Subió un nuevo proyecto</td>
+                        <td><span class="status">Completado</span></td>
+                    </tr>
+                    <tr>
+                        <td>15 Oct, 09:15</td>
+                        <td class="user">ana.ui</td>
+                        <td class="acction">Actualizó perfil</td>
+                        <td><span class="status">Completado</span></td>
+                    </tr>
+                    <tr>
+                        <td>15 Oct, 18:45</td>
+                        <td class="user">juan.perez</td>
+                        <td class="acction">Intento de pago</td>
+                        <td><span id="status_failed">Fallido</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <dialog id="userDialog">
+        <h3>Añadir Nuevo Usuario</h3>
+        <form id="userForm" method="dialog">
+            <label for="nuevoUsuario">Nombre de usuario</label>
+            <input type="text" id="nuevoUsuario" placeholder="Ingrese el nombre de usuario" required>
+            <button type="submit" id="guardarUsuario">Guardar</button>
+            <button type="button" id="cancelarDialog">Cancelar</button>
+        </form>
+    </dialog>
+    <script src="admin.js"></script>
+</body>
+</html>

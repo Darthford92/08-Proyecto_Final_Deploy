@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+
+*/
+
+body{
+    background-color: #875AFA;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+form{
+    font-family: "Arial", sans-serif; /* Cambio de fuente */
+    margin: 30px auto; 
+    border-radius: 10px;
+    padding: 35px;
+    background-color: #F5ADFA;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    width: 100%; /* Se utiliza todo el espacio disponible de su contenedor, el body */
+    max-width: 400px; /* Limita el width para que no se ensanche demasiado en pantallas muy grandes */
+    height: auto; /* Ajusta automáticamente la altura según imputs y textos */
+    min-height: 300px; /* Evita que se achique demasiado si hay poco contenido */
+     
+}
+
+label, input, select{
+    margin-bottom: 15px; /* agrega espacio en el margen superior de cada elemento */
+    box-sizing: border-box; /* Hace que width y heigth, dentro de la caja, incluyan padding y borde
+     para darle más espacio a los elementos*/
+}
+
+input, select{
+    font-size: 16px; /* cambia el tamaño de la fuente */
+}
+
+p{
+    margin: 20px 0; /* Este P se veía centrado porque los margenes laterales lo corrian
+    entonces se quitaron los margenes laterales al ponerle 0 */
+}
+
+select#nivel /* Selecciona un id especifico de una parte del texto especifica */{
+    width: 100%;/* hace que se estire a todo el contenedor */
+    padding: 10px;/* hace la caja más alta */
+    font-size: 16px;/* aumenta tamaño de letra */
+    border: none;
+    border-radius: 10px; 
+}
+
+input{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+}
+
+button{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #6F61C1;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.error {
+    color: #b00;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}

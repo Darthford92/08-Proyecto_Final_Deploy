@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+
+*/
+
+body{
+    background-color: rgb(255, 252, 252);
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+main{
+    background-color: rgb(235, 249, 255);
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside{
+  background-color: #0F172A;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 910px;
+  gap: 20px;
+  padding: 20px;
+}
+
+#aside_title{
+  font-size: 1.0rem;
+}
+
+aside a{
+  color: Grey;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+aside a:hover{
+  color: white;
+  background-color: #1e293b;
+}
+
+li{
+  list-style: none;
+  padding: 10px;
+  color: white;
+}
+
+header{
+  background-color: white;
+  color: black;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  border-color: 1px solid grey;
+}
+
+header div{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+#search{
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 40px;
+}
+
+img{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+#articles{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+article{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 0px 20px;
+  padding: 20px;
+  gap: 20px;
+  background-color: white;
+  box-shadow: 0 10px 20px;
+}
+
+#title_articles{
+  margin-top: 20px;
+  margin-left: 30px;
+  grid-column: span 2;
+}
+
+#new_user{
+  width: fit-content;
+  justify-self: end;
+  background-color: rgb(91, 91, 255);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#title_table{
+  margin-top: 40px;
+  margin-left: 30px;
+  padding: 0;
+}
+
+#table_section{
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+table{
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px;
+}
+
+thead{
+  background-color: rgb(197, 197, 197);
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+th, td{
+  border-bottom: 1px solid rgb(197, 197, 197);
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: start;
+}
+
+.article_title{
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.value{
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.change{
+  background-color: rgb(151, 253, 151);
+  border-radius: 10px;
+  color: green;
+  padding: 2px 8px;
+  width: fit-content;
+}
+
+#atention{
+  width: fit-content;
+  text-align: center;
+  background-color: rgb(247, 174, 174);
+  color: red;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.status{
+  color: rgb(38, 76, 202);
+  background-color: rgb(156, 202, 223);
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#status_failed{
+  color: red;
+  padding: 5px;
+  background-color: rgb(247, 174, 174);
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.user{
+  font-weight: bold;
+}
+
+.acction{
+  color: rgb(43, 42, 42);
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+dialog input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+dialog button {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+dialog button[type="submit"] {
+    background-color: rgb(91, 91, 255);
+    color: white;
+}
+
+dialog button[type="button"] {
+    background-color: #ccc;
+}

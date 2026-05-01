@@ -1,244 +1,428 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/*  */
+
+/* 
+Notas:
+Nº1: ESTO NO HACERLO EN EL BODY ENTERO SI QUIERO UN LAYOUT COMPLETO
+PORQUE CENTRA TODO SIN CONTROL
+display: flex;
+flex-direction: column;
+align-items: center;
+
+Nº2: DISPLAY FLEX AFECTA AL HIJO DIRECTO, NO A SUS HIJOS COMO EN ESTE CASO:
+<nav class="navbar">
+  <ul>
+    <li>...</li>
+  </ul>
+</nav>
+LOS LI NO SE VAN A ALINEAR GRACIAS A DISPLAY FLEX
+
+Nº3: text-align: center; NO CONTROLA DISTRIBUCIÓN DE LINKS
+
+Nº4: SI VOY A USAR FLEX DEBO USARLO BIEN, DEFINIENDO DIRECCION Y DISTRIBUCION DEL FLEX
+FLEX NECESITA DIRECCIÓN Y UN OBJETIVO CLARO
+NO SOLO USAR:
+display: flex;
+align-items: center;
+
+Nº5: REVISAR LAS CLASES DE LO QUE QUIERO MODIFICAR
+
+Nº6: GAP NO SEPARA LINKS, SEPARA HIJOS DIRECTOS EN UN
+CONTENEDOR FLEX/GRID
+
+Nº7 Height Delimita el contenido, si se quiere hacer dinamico hay que sacarlo
+
+Nº8 PARA LAYOUT HORIZONTAL DE 1 FILA DEBEMOS USAR FLEX, NO GRID
+GRID ES CUANDO SE SUMAN FILAS Y COLUMNAS
+
+Nº9 FLEX:1; AYUDA A QUE EL CONTENIDO SE ACOMODE MEJOR, CRECIENDO Y OCUPANDO ESPACIO DISPONIBLE
+
+Nº10 FLEX:WRAP; DEJA QUE LOS ELEMENTOS BAJEN DE LINEA SI NO ENTRAN
+
+Nº11 MARGIN AFECTA AL ELEMENTO, NO A SUS HIJOS
+
+
+*/
+
 body{
-  background-color: #121212;
-  color: white;
-  display: grid;
-  grid-template-columns: 200px 5fr;
-  grid-template-rows: 1fr auto; /* main ocupa todo el espacio, footer solo lo que necesita */
-  min-height: 100vh; /* Body ocupa al menos toda la pantalla */
-}
-
-aside{
-  background-color: black;
-  color: white;
-  padding: 20px;
-  align-self: stretch; /* Se estira el aside hasta el final de la fila */
-}
-
-#history{
-  font-size:large;
-  font-weight: bold;
-  color: white;
-  padding: 10px;
-}
-
-#title_aside{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-#hr{
-  border: none;
-  height: 2px;
-  background-color: rgb(48, 48, 48);
-  margin: 10px;
-  width: 100%;
-}
-
-aside h3{
-  padding: 10px;
-}
-
-aside li{
-  list-style: none;
-  color: grey;
-  text-decoration: none;
-  padding: 8px;
-  gap: 10px;
-  display: flex;
-}
-
-main li a{
-  color: white;
-}
-
-aside a{
-  font-weight: bold;
-  color: grey;
-  text-decoration: none;
-}
-
-aside a:hover {
-  color: white;
-}
-
-aside li:hover {
-  color: white;
-  cursor: pointer;
+    background-color: rgb(255, 252, 252);
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
 }
 
 main{
-  background: linear-gradient(to bottom, #2a2a4b 0%, #080608 40%);
+    background-color: rgb(235, 249, 255);
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside{
+  background-color: #0F172A;
+  color: white;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-height: 910px;
+  gap: 20px;
+  padding: 20px;
+}
+
+#aside_title{
+  font-size: 1.0rem;
+}
+
+aside a{
+  color: Grey;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+aside a:hover{
+  color: white;
+  background-color: #1e293b;
+}
+
+li{
+  list-style: none;
+  padding: 10px;
+  color: white;
 }
 
 header{
-  background-color: #121517;
-  height: 50px;
+  background-color: white;
+  color: black;
   display: flex;
+  height: 70px;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  border-color: 1px solid grey;
+}
+
+header div{
+  display: flex;
+  align-items: center;
   padding: 10px;
-  border-radius: 20px;
+  gap: 10px;
 }
 
-.nav_button{
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  background-color: black;
-  color: white;
-  border: none;
-}
-
-.nav_button:hover{
-  background-color: rgb(255, 255, 255);
-  color: black;
-  cursor: pointer;
-}
-
-#premium_button{
+#search{
   border-radius: 30px;
-  background-color: white;
   padding: 10px;
-  font-weight: bold;
-    border: none;
-}
-
-#premium_button:hover{
-  background-color: rgb(241, 173, 25);
-  color: black;
-  cursor: pointer;
-}
-
-#user_button{
-  background-color: rgb(25, 83, 241);
-  color: white;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  font-weight: bold;
-  border: none;
-}
-
-#user_button:hover{
-  background-color: rgb(241, 173, 25);
-  color: black;
-  cursor: pointer;
-}
-
-section h1{
-  margin-left: 15px ;
-}
-
-section ul{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
   margin: 10px;
+  width: 300px;
+  height: 40px;
+}
+
+img{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  object-position: center top; /* 👈 mueve la imagen */
+}
+
+#articles{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-section li{
+article{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 15px;
-  background-color: black;
-  cursor: pointer;
-  color: white;
-  list-style: none;
+  justify-content: center;
   border-radius: 10px;
-  transition: background-color 0.2s;
+  margin: 0px 20px;
+  padding: 20px;
+  gap: 20px;
+  background-color: white;
+  box-shadow: 0 10px 20px;
 }
 
-section li:hover {
-  background-color: #383838;
+#title_articles{
+  margin-top: 20px;
+  margin-left: 30px;
+  grid-column: span 2;
 }
 
-li img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-main li a{
+#new_user{
+  width: fit-content;
+  justify-self: end;
+  background-color: rgb(91, 91, 255);
   color: white;
-  text-decoration: none;
+  border-radius: 10px;
   padding: 10px;
+  margin: 10px;
 }
 
-li p {
+#title_table{
+  margin-top: 40px;
+  margin-left: 30px;
+  padding: 0;
+}
+
+#table_section{
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+table{
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px;
+}
+
+thead{
+  background-color: rgb(197, 197, 197);
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+th, td{
+  border-bottom: 1px solid rgb(197, 197, 197);
+  border-collapse: collapse;
   padding: 10px;
-  color: grey;
   text-align: start;
 }
 
-footer{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  padding: 0 20px;
-  grid-column: 1 / -1;
-  background-color: black;
-  border-top: 1px solid #333;
+.article_title{
+  color: grey;
+  font-size: 0.9rem;
 }
 
-.player-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 30%; /* Ocupa un tercio del footer */
+.value{
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
 }
 
-.player-info img {
-  width: 55px;
-  height: 55px;
-  object-fit: cover; /* recorta imagen para rellenar sin deformarse */
-  border-radius: 4px;
+.change{
+  background-color: rgb(151, 253, 151);
+  border-radius: 10px;
+  color: green;
+  padding: 2px 8px;
+  width: fit-content;
 }
 
-#player_link{
-  color: white;
-  text-decoration: none;
+#atention{
+  width: fit-content;
+  text-align: center;
+  background-color: rgb(247, 174, 174);
+  color: red;
+  border-radius: 10px;
+  padding: 2px 8px;
 }
 
-.player-controls {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.status{
+  color: rgb(38, 76, 202);
+  background-color: rgb(156, 202, 223);
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px;
 }
 
-.player-controls button {
-  background: none;
-  border: none;
-  padding: 10px;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
+#status_failed{
+  color: red;
+  padding: 5px;
+  background-color: rgb(247, 174, 174);
+  width: fit-content;
+  border-radius: 10px;
 }
 
-.player-controls button:hover {
-  color: #1db954;
+.user{
+  font-weight: bold;
 }
 
-.player-volume {
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
+.acction{
+  color: rgb(43, 42, 42);
 }
 
-/*  */
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+dialog input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+dialog button {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+dialog button[type="submit"] {
+    background-color: rgb(91, 91, 255);
+    color: white;
+}
+
+dialog button[type="button"] {
+    background-color: #ccc;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+.card p {
+    color: #475569;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background-color: #2563eb;
+}
+
+.presentacion {
+    padding: 2rem;
+    background-color: white;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.presentacion h2 {
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.presentacion p {
+    color: #334155;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+header {
+    background-color: rgb(90, 7, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.foto-perfil {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#fotoPersonal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 50%;
+}
+
+#nombreHeader {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.vista-proyectos {
+    background-image: url('assets/fondo-proyectos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.vista-juegos {
+    background-image: url('assets/fondo-juegos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.vista-proyectos .card,
+.vista-juegos .card {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+}
+
+#search, .avatar {
+    display: none;
+}

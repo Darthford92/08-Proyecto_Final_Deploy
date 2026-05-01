@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucursales - Appwise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Encuentra tu tienda más cercana</h1>
+        <p>Visitanos para probar nuestros equipos en persona</p>
+    </header>
+    <main>
+        <section>
+            <div>
+                <iframe id="mapFrame" title="Mapa de Sucursales" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642.024912472419!2d-58.381616653099705!3d-34.602901572450115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacf3fd8bac9%3A0x483d54a38bafeb5f!2sBaires%20Catering%20Boleteria%2024!5e0!3m2!1ses!2sar!4v1773520382615!5m2!1ses!2sar" ></iframe>
+            </div>
+        </section>
+        <aside>
+            <h2>Nuestras Sucursales</h2>
+            <hr>
+            <ul>
+                <li>
+                    <span class="branch"><strong>📍 Sucursal Centro</strong></span>
+                    Av. Corrientes 1234, CABA <br>
+                    <span class="schedule">Lunes a Viernes: 9:00 - 20:00</span>
+                    <a href="#" data-direccion="Av. Corrientes 1234, CABA" data-lat="-34.603722" data-lng="-58.381592"> Ver en el mapa </a>
+                </li>
+                <hr>
+                <li>
+                    <span class="branch"><strong>📍 Sucursal Norte</strong></span>
+                    Av. Cabildo 4500, CABA<br>
+                    <span class="schedule">Lunes a Sábados: 10:00 - 19:00</span>
+                    <a href="#" data-direccion="Av. Cabildo 4500, CABA" data-lat="-34.558477" data-lng="-58.453504"> Ver en el mapa </a>
+                </li>
+            </ul>
+        </aside>
+    </main>
+    <script src="mapas.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*  */
+
+body {
+    background-color: #b5d6d5 ; /* Color de fondo */
+    color: rgb(161, 0, 0); /* color de letras */
+    display: flex; /* activo flex */
+    flex-direction: column; /* Pogo la dirección del flex en modo columna para que esté todo
+    una cosa arriba de la otra */
+    align-items: center; /* Alineo todos los items de la columna al centro */
+}
+
+header{
+    text-align: center; /* Alineo los textos del titulo y subtitulo al centro */
+    margin: 30px; /* Ale agrego margenes alrededor para que se vea más espaciado */
+}
+
+header h1 {
+  margin-bottom: 15px; /* Agrego margen inferior al titulo */
+}
+
+#Plato{
+    border-radius: 10px; /* redondeo las puntas d ela foto */
+    margin: 30px; /* le agrego margen a la foto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 2); /* Agrego sombra a la imagen */
+}
+
+ul, ol{
+    list-style-position: inside; /* Como los estilos de lista quedaban afuera del cuadro del div
+    tuve que modificar esto para que queden dentro */
+}
+
+#Plato:hover{
+    transform: scale(1.02); /* Agrego un hover y uan transformación que agrande la "tarjeta"
+    en la que está la imágen*/
+}
+
+div{
+    color: black; /* cambai el color de las letras dentro de los divs */
+    margin: 20px; /* agrego amrgen al div */
+    background-color: white; /* le pongo fondo blanco */
+    padding: 10px; /* agrego espacio entre sus items */
+    border-radius: 10px; /* redondeo el borde del div */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1); /* Agrego sombra a las cajas del div */
+}
+
+div:hover{
+    transform: scale(1.02); /* Los mismo que con la imagen, es un intento de darle forma de tarjeta
+    a los divs */
+}
+
+h2{
+    color: #C240AB; /* Cambio el color de los h2 */
+}
+
+hr{
+    margin: 10px; /* Agrego margen entre los hr y lo de alrededor */
+    border: none; /* Le quito el borde a los hr para darles luego color */
+    height: 1px; /* cambio la altura de los hr */
+    background-color: #D32F31; /* le agrego color a los hr, no reciben color con "color" */
+}
+
+footer{
+    margin: 30px; /* agrego amrgen al footer para que no se vea tan pegado */
+    width: 80%; /* expando el tamaño del footer, que quedaba muy corto y en el centro*/
+    text-align: center; /* alineo el texto al centro */
+    font-size: 2rem; /* aumento el tamaño de la fuente */
+}
+
+
+.tachado {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.7;
+}
+
+.btn-toggle {
+    background-color: #D32F31;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-toggle:hover {
+    background-color: #b52b2d;
+    transform: scale(1.02);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+nav a {
+    color: #D32F31;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #a02022;
+}

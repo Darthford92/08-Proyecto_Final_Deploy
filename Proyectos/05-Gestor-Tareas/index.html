@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Mis Tareas Pendientes</h1>
+        <section>
+            <input id="new_task" type="text" placeholder="¿Qué necesitas hacer hoy?">
+            <button id="add_task">Agregar Tareas</button>
+        </section>
+        <ul id="listaTareas">
+            <li>
+                <label for="tarea1">
+                    <input type="checkbox" id="tarea1">
+                    <span>Estudiar etiquetas semánticas</span>
+                </label>
+                <button class="button">X</button>
+            </li>
+            <li>
+                <label for="tarea2">
+                    <input type="checkbox" checked id="tarea2">
+                    <span>Tomar 2 litros de agua</span>
+                </label>
+                <button class="button">X</button>
+            </li>
+            <li>
+                <label for="tarea3">
+                    <input type="checkbox" id="tarea3">
+                    <span>Avanzar en el proyecto de Github</span> 
+                </label>
+                <button class="button">X</button>
+            </li>
+        </ul>
+         <hr>
+        <div class="file">
+            <p id="contadorPendientes">Tienes 2 tareas pendientes</p>
+            <button id="limpiarCompletadas"> Limpiar completadas</button>
+        </div>
+    </main>
+
+    <script src="tareas.js"></script>
+</body>
+</html>
